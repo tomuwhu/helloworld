@@ -5,7 +5,7 @@ console . log     ( fin )
 var str = fss
         . readFileSync
                   ( fin,'UTF-8' )
-console . log     (str)
+console . log     ( str )
 var arr = str
         . split   ( '\n' )
     arr . sort    ( )
