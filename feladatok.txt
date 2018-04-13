@@ -1,0 +1,12 @@
+1. Írjon proframot, amely bekér a felhasználótól egy számot és kiírja
+    a) a 3-szorosát
+    b) a négyzetét
+    c) a gyökét
+    d) a sinusát
+    e) a faktoriálisát
+2. Írjon proframot, amely bekér a felhasználótól két számot és kiírja
+    a) az összegüket
+    b) a négyzetösszegüket
+    c) a négyzetösszegük gyökét
+    d) a legnagyobb közös osztójukat
+    e) a legkisebb közös többszörösüket
