@@ -1,17 +1,17 @@
 
-                     ( 'out.txt', out )
-                     ( fin,'UTF-8' )
-           . readFileSync
-           . split   ( '\n' )
-    arr    . forEach ( v => out += v + "\n")
-    arr    . sort    ( )
-    fss    . writeFileSync
-console    . log     ( fin )
-console    . log     ( out )
-console    . log     (str)
-var arr    = str
-var fin    = inp     ( 'Fájlnév: ' )
-var fss    = require ( 'fs' )
-var inp    = require ( 'prompt-sync' )()
-var out    = ""
-var str    = fss
+                  ( 'out.txt', out )
+                  ( fin,'UTF-8' )
+        . readFileSync
+        . split   ( '\n' )
+    arr . forEach ( v => out += v + "\n")
+    arr . sort    ( )
+    fss . writeFileSync
+console . log     ( fin )
+console . log     ( out )
+console . log     (str)
+var arr = str
+var fin = inp     ( 'Fájlnév: ' )
+var fss = require ( 'fs' )
+var inp = require ( 'prompt-sync' )()
+var out = ""
+var str = fss
