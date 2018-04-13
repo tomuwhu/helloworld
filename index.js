@@ -2,37 +2,29 @@
 //#Morze
 var prompt = require('prompt-sync')()
 var fs     = require('fs')
+var mcode   = new Map
 
 //6. feladat
 class MorzeMap extends Map {
-    constructor() { super() }
     Morze2Szöveg(s) {
-        if (s) {
-            let answ   = ''
-            let szavak = s.split('       ')
+            let answ = '', szavak = s.split('       ')
             szavak.forEach( szo => {
-                szo
-                  .split('   ')
-                  .forEach( betu => answ += this.get( betu ) )
+                szo.split('   ')
+                   .forEach( betu => answ += this.get( betu ) )
                 answ += ' '
             } )
             return answ.trim()
-        }
     }
 }
-
-var mcode   = new Map
 var mdecode = new MorzeMap
 
 //2. feladat
-var data    = fs
-            . readFileSync('input/morzeabc.txt','UTF-8')
-data.split('\r\n').forEach( (v,k) => {
+fs.readFileSync('input/morzeabc.txt','UTF-8')
+.split('\r\n').forEach( (v,k) => {
      let ve = v.split('\t')
-     if (k) {
-         mcode   . set(ve[0],ve[1])
-         mdecode . set(ve[1],ve[0])
-     }
+     ve.slice(1)
+     mcode.set(ve[0],ve[1])
+     mdecode.set(ve[1],ve[0])
 })
 
 //3. feladat
@@ -46,10 +38,8 @@ if (typeof mc=='undefined')
 console.log(`4. feladat: '${mc}'\n`)
 
 //5. feladat
-var data    = fs
-            . readFileSync('input/morze.txt','UTF-8')
 let it = []
-data
+fs.readFileSync('input/morze.txt','UTF-8')
   .split('\r\n')
   .forEach( v => {
       let sor=v.split(';')
@@ -58,6 +48,8 @@ data
           idézet: mdecode.Morze2Szöveg(sor[1])
       })
   })
+
+//6. feladat lásd fent
 
 //7. feladat
 console.log('7. feladat:',it[0].szerző)
