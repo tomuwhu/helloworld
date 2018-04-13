@@ -1,12 +1,14 @@
-1. Írjon proframot, amely bekér a felhasználótól egy számot és kiírja
-    a) a 3-szorosát
-    b) a négyzetét
-    c) a gyökét
-    d) a sinusát
-    e) a faktoriálisát
-2. Írjon proframot, amely bekér a felhasználótól két számot és kiírja
-    a) az összegüket
-    b) a négyzetösszegüket
-    c) a négyzetösszegük gyökét
-    d) a legnagyobb közös osztójukat
-    e) a legkisebb közös többszörösüket
+1. Írjon programot, amely bekér a felhasználótól egy számot (n) és kiírja
+    a) a 3-szorosát                       / 3*n
+    b) a négyzetét                        / n**2
+    c) a gyökét                           / Math.sqrt(n)
+    d) a sinusát                          / Math.sin(n)
+    e) a faktoriálisát                    / n!     -> gondolkozzon!
+    f) az n. prímszámot                   / ???!!! -> gondolkozzon!
+
+2. Írjon programot, amely bekér a felhasználótól két számot (a, b) és kiírja
+    a) az összegüket                      / a + b
+    b) a négyzetösszegüket                / (a + b)**2
+    c) a négyzetük összegének gyökét      / Math.sqrt(a**2 + b**2)
+    d) a legnagyobb közös osztójukat      / lnko(a,b)     -> gondolkozzon!
+    e) a legkisebb közös többszörösüket   / a*b/lnko(a,b)
