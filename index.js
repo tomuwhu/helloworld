@@ -2,14 +2,14 @@
 //#Morze
 var prompt = require('prompt-sync')()
 var fs     = require('fs')
-var mcode   = new Map
+var mcode  = new Map
 
 //6. feladat
 class MorzeMap extends Map {
     Morze2Szöveg(s) {
-            let answ = '', szavak = s.split('       ')
+            let answ = '', szavak = s.split(/ {7}/)
             szavak.forEach( szo => {
-                szo.split('   ')
+                szo.split(/ {3}/)
                    .forEach( betu => answ += this.get( betu ) )
                 answ += ' '
             } )
