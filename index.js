@@ -25,8 +25,9 @@ cc.print( `3. feladat: ${abc.length}\n` )
 var karakter = cc.input('karakter: ')
 mc = cc.find(abc,'Betű',karakter)
 if (typeof mc=='undefined')
-    mc = 'Nem található a kódtárban ilyen karakter!'
-cc.print(`4. feladat: '${mc.Morzejel}'\n`)
+  cc.print(`4. feladat: Nem található a kódtárban ilyen karakter!\n`)
+else
+  cc.print(`4. feladat: '${mc.Morzejel}'\n`)
 
 //5. feladat
 text = cc.read('input/morze.txt','\r\n',';',0,0,['szerző','idézet'])
