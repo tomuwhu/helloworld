@@ -26,13 +26,13 @@ var karakter = cc.input('karakter: ')
 mc = cc.find(abc,'Betű',karakter)
 if (typeof mc=='undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
-cc.print(`4. feladat: '${mc.Morzejel}'`)
+cc.print(`4. feladat: '${mc.Morzejel}'\n`)
 
 //5. feladat
 text = cc.read('input/morze.txt','\r\n',';',0,0,['szerző','idézet'])
 
 //7. feladat
-cc.print('7. feladat:',Morze2Szöveg(text[0].szerző))
+cc.print('7. feladat:',Morze2Szöveg(text[0].szerző,'\n'))
 
 //10. feladat
 it = text.map( v => {
@@ -40,13 +40,11 @@ it = text.map( v => {
     v.idézet = Morze2Szöveg(v.idézet)
     return v
 })
-
-console.log (it)
 cc.write('forditas.txt',it)
 
 //8. feladat
 it.sort( (a,b) => b.idézet.length-a.idézet.length)
-cc.print('8. feladat:',it[0].szerző+": "+it[0].idézet)
+cc.print('8. feladat:',it[0].szerző+": "+it[0].idézet,'\n')
 
 //9. feladat
 it_arisztotelész = it.filter( v => v.szerző=='ARISZTOTELÉSZ' )
