@@ -7,7 +7,7 @@ cc = require('exam-cc')
 
 function Morze2Szöveg(s) {
         let answ = '', szavak = s.split(/ {7}/)
-        szavak.forEach( szo => {
+        szavak.map( szo => {
             szo.split(/ {3}/)
                .forEach( betu => answ += cc.find(abc, 'Morzejel', betu, true ).Betű )
             answ += ' '
@@ -32,9 +32,6 @@ else
 //5. feladat
 text = cc.read('input/morze.txt','\r\n',';',0,0,['szerző','idézet'])
 
-//7. feladat
-cc.print('7. feladat:',Morze2Szöveg(text[0].szerző,'\n'))
-
 //10. feladat
 it = text.map( v => {
     v.szerző = Morze2Szöveg(v.szerző)
@@ -43,11 +40,14 @@ it = text.map( v => {
 })
 cc.write('forditas.txt',it)
 
+//7. feladat
+cc.print('7. feladat:',it[0].szerző,'\n')
+
 //8. feladat
 it.sort( (a,b) => b.idézet.length-a.idézet.length)
 cc.print('8. feladat:',it[0].szerző+": "+it[0].idézet,'\n')
 
 //9. feladat
-it_arisztotelész = it.filter( v => v.szerző=='ARISZTOTELÉSZ' )
-cc.print('9. feladat, Arisztotelész idézetei:')
-it_arisztotelész.forEach( v => cc.print('       - ',v.idézet))
+it_a = cc.filter( it , 'szerző', 'ARISZTOTELÉSZ' )
+cc.print( '9. feladat, Arisztotelész idézetei:' )
+it_a.map( v => cc.print('   - ',v.idézet) )
