@@ -15,7 +15,6 @@ function Morze2Szöveg(s) {
         return answ.trim()
 }
 
-
 //2. feladat
 abc = cc.read('input/morzeabc.txt','\r\n','\t')
 
@@ -42,13 +41,14 @@ it = text.map( v => {
     return v
 })
 
+console.log (it)
 cc.write('forditas.txt',it)
 
 //8. feladat
 it.sort( (a,b) => b.idézet.length-a.idézet.length)
-console.log('8. feladat:',it[0].szerző+": "+it[0].idézet)
+cc.print('8. feladat:',it[0].szerző+": "+it[0].idézet)
 
 //9. feladat
 it_arisztotelész = it.filter( v => v.szerző=='ARISZTOTELÉSZ' )
-console.log('9. feladat, Arisztotelész idézetei:')
-it_arisztotelész.forEach( v => console.log('       - ',v.idézet))
+cc.print('9. feladat, Arisztotelész idézetei:')
+it_arisztotelész.forEach( v => cc.print('       - ',v.idézet))
