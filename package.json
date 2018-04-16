@@ -14,6 +14,6 @@
   },
   "license": "ISC",
   "dependencies": {
-    "exam-cc": "^1.1.18"
+    "exam-cc": "^1.2.3"
   }
 }
