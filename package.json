@@ -2,14 +2,15 @@
   "name": "basic",
   "version": "1.0.0",
   "description": "Hello world app",
-  "main": "index.js",
+  "main"   : "index.js",
   "scripts": {
-    "test": "node index.js"
+    "start": "node index.js",
+    "test" : "node index.js"
   },
-  "author": "Dr. Németh Tamás",
+  "author" : "Dr. Németh Tamás",
   "repository": {
-    "type": "git",
-    "url": "helloworld"
+    "type" : "git",
+    "url"  : "helloworld"
   },
   "license": "ISC",
   "dependencies": {
