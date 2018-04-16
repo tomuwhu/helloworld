@@ -1,6 +1,7 @@
 //1. feladat
-var prompt = require('prompt-sync')()
-var fs     = require('fs')
+var input = require('prompt-sync')()
+var read   = require('fs').readFileSync
+var write  = require('fs').writeFileSync
 var mcode  = new Map
 
 //6. feladat
@@ -18,7 +19,7 @@ class MorzeMap extends Map {
 var mdecode = new MorzeMap
 
 //2. feladat
-fs.readFileSync('input/morzeabc.txt','UTF-8')
+read('input/morzeabc.txt','UTF-8')
 .split('\r\n').forEach( (v,k) => {
      let ve = v.split('\t')
      ve.slice(1)
@@ -30,7 +31,7 @@ fs.readFileSync('input/morzeabc.txt','UTF-8')
 console.log( `3. feladat: ${mcode.size}\n` )
 
 //4. feladat
-var karakter = prompt('karakter: ')
+var karakter = input('karakter: ')
 mc = mcode.get(karakter.toUpperCase())
 if (typeof mc=='undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
@@ -38,7 +39,7 @@ console.log(`4. feladat: '${mc}'\n`)
 
 //5. feladat
 let it = []
-fs.readFileSync('input/morze.txt','UTF-8')
+read('input/morze.txt','UTF-8')
   .split('\r\n')
   .forEach( v => {
       let sor=v.split(';')
@@ -65,4 +66,4 @@ itariszt.forEach( v => console.log('       - ',v.idézet))
 //10. feladat
 let s=''
 it.forEach( v => s += v.szerző+':'+v.idézet+'\n' )
-fs.writeFile( 'output/forditas.txt', s, err => {} )
+write( 'output/forditas.txt', s, err => {} )
