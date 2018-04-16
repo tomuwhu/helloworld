@@ -1,8 +1,8 @@
 //1. feladat
 var input = require('prompt-sync')()
-var read   = require('fs').readFileSync
-var write  = require('fs').writeFileSync
-var mcode  = new Map
+var read  = require('fs').readFileSync
+var write = require('fs').writeFileSync
+var mcode = new Map
 
 //6. feladat
 class MorzeMap extends Map {
@@ -48,8 +48,6 @@ read('input/morze.txt','UTF-8')
           idézet: mdecode.Morze2Szöveg(sor[1])
       })
   })
-
-//6. feladat lásd fent
 
 //7. feladat
 console.log('7. feladat:',it[0].szerző)
