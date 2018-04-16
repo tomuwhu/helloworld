@@ -1,10 +1,7 @@
+//1. feladat
 cc = require('exam-cc')
 
-//1. feladat
-//#Morze
-
 //6. feladat
-
 function Morze2Szöveg(s) {
         let answ = '', szavak = s.split(/ {7}/)
         szavak.map( szo => {
