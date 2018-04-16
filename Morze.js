@@ -1,5 +1,4 @@
 //1. feladat
-//#Morze
 var prompt = require('prompt-sync')()
 var fs     = require('fs')
 var mcode  = new Map
