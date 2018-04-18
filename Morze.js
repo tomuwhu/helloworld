@@ -49,5 +49,5 @@ cc.print('8. feladat: A leghosszabb idézet szerzője és az idézet:',it[0].sze
 
 //9. feladat
 it_a = cc.filter( it , 'szerző', 'ARISZTOTELÉSZ' )
-cc.print( '9. feladat, Arisztotelész idézetei:' )
-it_a.map( v => cc.print('   - ',v.idézet) )
+cc.print( '9. feladat: Arisztotelész idézetei:' )
+it_a.map( v => cc.print('          -',v.idézet) )
