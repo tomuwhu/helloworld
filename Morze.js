@@ -4,6 +4,10 @@ var read  = require('fs').readFileSync
 var write = require('fs').writeFileSync
 var mcode = new Map
 
+var azt = ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á']
+
+az = (c='') => azt.includes(c.toLowerCase()) ? 'z' : ''
+
 //6. feladat
 class MorzeMap extends Map {
     Morze2Szöveg(s) {
@@ -20,22 +24,21 @@ var mdecode = new MorzeMap
 
 //2. feladat
 read('input/morzeabc.txt','UTF-8')
-.split('\r\n').forEach( (v,k) => {
+.split('\r\n').slice(1).forEach( (v,k) => {
      let ve = v.split('\t')
-     ve.slice(1)
      mcode.set(ve[0],ve[1])
      mdecode.set(ve[1],ve[0])
 })
 
 //3. feladat
-console.log( `3. feladat: ${mcode.size}\n` )
+console.log( `3. feladat: A morze abc ${mcode.size} db karakter kódját tartalmazza\n` )
 
 //4. feladat
-var karakter = input('karakter: ')
+var karakter = input('4. feladat: Kérek egy karaktert: ')
 mc = mcode.get(karakter.toUpperCase())
 if (typeof mc=='undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
-console.log(`4. feladat: '${mc}'\n`)
+console.log(`            A${az(karakter)} ${karakter} karakter morze kódja: ${mc}\n`)
 
 //5. feladat
 let it = []
@@ -50,16 +53,17 @@ read('input/morze.txt','UTF-8')
   })
 
 //7. feladat
-console.log('7. feladat:',it[0].szerző)
+console.log('7. feladat: Az első idézet szerzője: ',it[0].szerző)
 
 //8. feladat
 it.sort( (a,b) => b.idézet.length-a.idézet.length)
-console.log('8. feladat:',it[0].szerző+": "+it[0].idézet)
+console.log('8. feladat: A leghosszabb idézet szerzője és az idézet:'
+            ,it[0].szerző+": "+it[0].idézet)
 
 //9. feladat
 itariszt = it.filter( v => v.szerző=='ARISZTOTELÉSZ' )
-console.log('9. feladat, Arisztotelész idézetei:')
-itariszt.forEach( v => console.log('       - ',v.idézet))
+console.log('9. feladat: Arisztotelész idézetei:')
+itariszt.forEach( v => console.log('          -',v.idézet))
 
 //10. feladat
 let s=''
