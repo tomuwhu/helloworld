@@ -4,10 +4,10 @@ var read  = require('fs').readFileSync
 var write = require('fs').writeFileSync
 var mcode = new Map
 
-var azt = ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á']
-
-az = (c='') => azt.includes(c.toLowerCase()) ? 'z' : ''
-
+var az = {
+    azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
+    az : (c='') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
+}
 //6. feladat
 class MorzeMap extends Map {
     Morze2Szöveg(s) {
@@ -38,7 +38,7 @@ var karakter = input('4. feladat: Kérek egy karaktert: ')
 mc = mcode.get(karakter.toUpperCase())
 if (typeof mc=='undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
-console.log(`            A${az(karakter)} ${karakter} karakter morze kódja: ${mc}\n`)
+console.log(`            A${az.az(karakter)} ${karakter} karakter morze kódja: ${mc}\n`)
 
 //5. feladat
 let it = []
