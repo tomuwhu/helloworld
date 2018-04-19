@@ -1,8 +1,8 @@
 //1. feladat
 cc = require('exam-cc')
 var az = {
-    azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
-    az : (c='') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
+    azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á','y'],
+    aaz: (c='c') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
 }
 //6. feladat
 function Morze2Szöveg(s) {
@@ -27,10 +27,10 @@ mc = cc.find(abc,'Betű',karakter)
 if (typeof mc=='undefined')
   cc.print(`            Nem található a kódtárban ilyen karakter!\n`)
 else
-  cc.print(`            A${az.az(karakter)} ${karakter} karakter morze kódja: ${mc.Morzejel}\n`)
+  cc.print(`            A${az.aaz(karakter)} ${karakter} karakter morze kódja: ${mc.Morzejel}\n`)
 
 //5. feladat
-text = cc.read('input/morze.txt','\r\n',';',0,0,['szerző','idézet'])
+text = cc.read('input/morze.txt','\r\n',undefined,0,0,['szerző','idézet'])
 
 //10. feladat
 it = text.map( v => {
