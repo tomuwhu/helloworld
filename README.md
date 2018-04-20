@@ -1,10 +1,7 @@
 # helloworld
 Konzol-alkalmazások gyűjteménye: fájlkezelés, input beolvasás, vizsgafeladatok megoldásai
 ```javascript
-var bekér  =  require ( 'prompt-sync' )()
-kiír = (x) => console.log(x)
-
-//JS kód:
-var x = bekér('Írj be egy számot: ')
-kiír(`A kétszerese: ${ 2 * x }`)
+cc = require('exam-cc')
+t = cc.read('nevek.txt','\n',';',0,-1)
+console.log(t.sort( (a, b)=> a.nev.localeCompare(b.nev) ).slice(0,5) )
 ```
