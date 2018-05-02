@@ -8,6 +8,7 @@ var az = {
     azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
     az : (c='') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
 }
+
 //6. feladat
 class MorzeMap extends Map {
     Morze2Szöveg(s) {
@@ -31,21 +32,25 @@ read('input/morzeabc.txt','UTF-8')
 })
 
 //3. feladat
-console.log( `3. feladat: A morze abc ${mcode.size} db karakter kódját tartalmazza\n` )
+console.log(
+  `3. feladat: A morze abc ${mcode.size} db karakter kódját tartalmazza\n`
+)
 
 //4. feladat
 var karakter = input('4. feladat: Kérek egy karaktert: ')
 mc = mcode.get(karakter.toUpperCase())
-if (typeof mc=='undefined')
+if (typeof mc == 'undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
-console.log(`            A${az.az(karakter)} ${karakter} karakter morze kódja: ${mc}\n`)
+console.log(
+`            A${az.az(karakter)} ${karakter} karakter morze kódja: ${mc}\n`
+)
 
 //5. feladat
 let it = []
 read('input/morze.txt','UTF-8')
   .split('\r\n')
   .forEach( v => {
-      let sor=v.split(';')
+      let sor = v.split(';')
       it.push({
           szerző: mdecode.Morze2Szöveg(sor[0]),
           idézet: mdecode.Morze2Szöveg(sor[1])
@@ -53,19 +58,38 @@ read('input/morze.txt','UTF-8')
   })
 
 //7. feladat
-console.log('7. feladat: Az első idézet szerzője: ',it[0].szerző)
+console.log(
+   '7. feladat: Az első idézet szerzője: ',
+   it[0].szerző
+)
 
 //8. feladat
 it.sort( (a,b) => b.idézet.length-a.idézet.length)
-console.log('8. feladat: A leghosszabb idézet szerzője és az idézet:'
-            ,it[0].szerző+": "+it[0].idézet)
+console.log(
+  '8. feladat: A leghosszabb idézet szerzője és az idézet:',
+  it[0].szerző+": "+it[0].idézet
+)
 
 //9. feladat
-itariszt = it.filter( v => v.szerző=='ARISZTOTELÉSZ' )
-console.log('9. feladat: Arisztotelész idézetei:')
-itariszt.forEach( v => console.log('          -',v.idézet))
+itariszt = it.filter(
+  v => v.szerző == 'ARISZTOTELÉSZ'
+)
+console.log(
+  '9. feladat: Arisztotelész idézetei:'
+)
+itariszt.forEach(
+  v => console.log(
+    '          -',
+    v.idézet
+  )
+)
 
 //10. feladat
-let s=''
-it.forEach( v => s += v.szerző+':'+v.idézet+'\n' )
-write( 'output/forditas.txt', s, err => {} )
+var s
+write(
+  'output/forditas.txt',
+  it.reduce(
+    (s,v) => s + v.szerző+':'+v.idézet+'\n',''
+  ),
+  err => {}
+)
