@@ -12,12 +12,18 @@ var az = {
 //6. feladat
 class MorzeMap extends Map {
     Morze2Szöveg(s) {
-            let answ = '', szavak = s.split(/ {7}/)
-            szavak.forEach( szo => {
+            let answ = ''
+            let szavak = s.split(/ {7}/)
+            szavak.forEach(
+              szo => {
                 szo.split(/ {3}/)
-                   .forEach( betu => answ += this.get( betu ) )
+                   .forEach(
+                     betu =>
+                        answ += this.get( betu )
+                   )
                 answ += ' '
-            } )
+              }
+            )
             return answ.trim()
     }
 }
