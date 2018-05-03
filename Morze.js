@@ -18,8 +18,8 @@ class MorzeMap extends Map {
               szo => {
                 szo.split(/ {3}/)
                    .forEach(
-                     betu =>
-                        answ += this.get( betu )
+                       betu =>
+                          answ += this.get( betu )
                    )
                 answ += ' '
               }
