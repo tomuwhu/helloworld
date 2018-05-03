@@ -1,3 +1,4 @@
+'use strict'
 //1. feladat
 var input = require('prompt-sync')()
 var read  = require('fs').readFileSync
@@ -44,7 +45,7 @@ console.log(
 
 //4. feladat
 var karakter = input('4. feladat: Kérek egy karaktert: ')
-mc = mcode.get(karakter.toUpperCase())
+var mc = mcode.get(karakter.toUpperCase())
 if (typeof mc == 'undefined')
     mc = 'Nem található a kódtárban ilyen karakter!'
 console.log(
@@ -77,7 +78,7 @@ console.log(
 )
 
 //9. feladat
-itariszt = it.filter(
+var itariszt = it.filter(
   v => v.szerző == 'ARISZTOTELÉSZ'
 )
 console.log(
