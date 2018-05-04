@@ -86,7 +86,7 @@ console.log(
 )
 itariszt.forEach(
   v => console.log(
-    '          -',
+    '-'.padStart(11),
     v.idézet
   )
 )
