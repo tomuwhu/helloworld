@@ -1,6 +1,18 @@
-var bekér  =  require ( 'prompt-sync' )()
-kiír = (x) => console.log(x)
-
-//JS kód:
-var x = bekér('Írj be egy számot: ')
-kiír(`A kétszerese: ${ 2 * x }`)
+var colors = require('colors')
+b = (x) => {
+  return new Promise( (a,b) => {
+        setTimeout(
+           () => (Math.random()>0.5)
+             ? a(2+x) : b(3+x), 1000
+        )
+  } )
+}
+async function f1(y) {
+  try {
+    var c = await b(y)
+    console.log(c.bgRed) // 20
+  } catch(e) {
+    console.log(e.red.bold) // 30
+  }
+}
+f1(' cica'.yellow.reset), f1(' béka'.green.reset), f1(' kutya'.cyan.reset)
