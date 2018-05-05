@@ -1,6 +1,4 @@
-var bekér  =  require ( 'prompt-sync' )()
-kiír = (x) => console.log(x)
+var input  =  require ( 'prompt-sync' )()
 
-//JS kód:
-var x = bekér('Írj be egy számot: ')
-kiír(`A kétszerese: ${ 2 * x }`)
+var x = input('Írj be egy számot: ')
+console.log(`A kétszerese: ${ 2 * x }`)
