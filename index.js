@@ -1,9 +1,9 @@
 var colors = require('colors')
-b = (x) => {
+function b(x) {
   return new Promise( (a,b) => {
         setTimeout(
            () => (Math.random()>0.5)
-             ? a(2+x) : b(3+x), 1000
+             ? a(2+x) : b(3+x), Math.random()*3000
         )
   } )
 }
