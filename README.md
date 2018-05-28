@@ -1,14 +1,21 @@
 # helloworld
 Konzol-alkalmazások gyűjteménye: fájlkezelés, input beolvasás, vizsgafeladatok megoldásai
-```javascript
-var bekér  =  require ( 'prompt-sync' )()
-kiír = (x) => console.log(x)
 
-//JS kód:
+```javascript
+var bekér = require ( 'prompt-sync' )()
 var x = bekér('Írj be egy számot: ')
-kiír(`A kétszerese: ${ 2 * x }`)
+console.log(`A kétszerese: ${ 2 * x }`)
 ```
 
+
+## sread példa
+
+```javascript
+var sread = require("sread")
+var answer = sread('your name? ')
+console.log('Hi', answer, '!')
+
+```
 
 ## Promise példa
 ```javascript
