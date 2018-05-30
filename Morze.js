@@ -6,7 +6,7 @@ var write = require('fs').writeFileSync
 var mcode = new Map
 
 var az = {
-    azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
+    azt: ['a','e','f','i','l','m','n','r','s','x','y','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
     az : (c='') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
 }
 
