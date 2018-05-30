@@ -1,7 +1,7 @@
 //1. feladat
 cc = require('exam-cc')
 var az = {
-    azt: ['a','e','i','o','u','ó','ő','ö','ű','ü','ú','í','é','á','y'],
+    azt: ['a','e','f','i','l','m','n','r','s','x','y','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
     aaz: (c='c') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
 }
 //6. feladat
