@@ -1,8 +1,12 @@
 cc = require('exam-cc')
 text = cc.read('forditas.txt','\n',';',0,-1,['szerzo','idezet'])
-//console.log(text)
 cc.initsql(text,'teszt')
-//cc.initsql()
+szerzo = cc.input('Adja meg a keresett szerzőt!')
 console.log(
-  cc.query('SELECT * FROM teszt')[0].szerzo
+  cc.query(`
+      SELECT idezet
+      FROM teszt
+      WHERE szerzo like '%${szerzo}%'
+      ORDER BY idezet
+  `).map( v => v.idezet).join('\r\n')
 )
