@@ -1,24 +1,8 @@
-const rl =
-  require('readline')
-    .createInterface({
-      input: process.stdin,
-      output: process.stdout
-    })
-s = new Set()
-rl.on('line', line => {
-    if (line.length==0)
-        console.log(s),
-        rl.close()
-    else
-        line
-          .split(",")
-          .forEach( v => {
-              if ( s.has(v) ) console.log('Van már ilyen!')
-              else s.add(v), console.log('Beszúrva!')
-          } )
-})
-console.log(`
-Set demo.
-
-Kilépés <Enter>!`
-);
+cc = require('exam-cc')
+text = cc.read('forditas.txt','\n',';',0,-1,['szerzo','idezet'])
+//console.log(text)
+cc.initsql(text,'teszt')
+//cc.initsql()
+console.log(
+  cc.query('SELECT * FROM teszt')[0].szerzo
+)
