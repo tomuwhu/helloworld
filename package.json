@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node Morze.js",
-    "test": "node Morze.js"
+    "test": "nodemon node Morze.js"
   },
   "author": "Dr. Németh Tamás",
   "repository": {

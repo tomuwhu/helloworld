@@ -15,10 +15,10 @@ let szoveg = cc.read('./input/morze.txt', ';', 0, ['szerzo', 'idezet'])
 let Morze2Szöveg = szoveg =>
   szoveg
   .split(/\s{7}/) // szavak tömb
-  .map(szo =>
-    szo.split(/\s{3}/)
-    .map(betu => m2b.get(betu).Betű)
-    .join('')
+  .map( szo =>
+        szo .split(/\s{3}/)
+            .map(betu => m2b.get(betu).Betű)
+            .join('')
   )
   .join(' ')
 console.log(`7. feladat: Az első idézet szerzője: ${ Morze2Szöveg(szoveg[0].szerzo) }`)
