@@ -1,53 +1,38 @@
-//1. feladat
-cc = require('exam-cc')
-var az = {
-    azt: ['a','e','f','i','l','m','n','r','s','x','y','o','u','ó','ő','ö','ű','ü','ú','í','é','á'],
-    aaz: (c='c') => az.azt.includes(c.toLowerCase()) ? 'z' : ''
-}
-//6. feladat
-function Morze2Szöveg(s) {
-        let answ = '', szavak = s.split(/ {7}/)
-        szavak.map( szo => {
-            szo.split(/ {3}/)
-               .forEach( betu => answ += cc.find(abc, 'Morzejel', betu, true ).Betű )
-            answ += ' '
-        } )
-        return answ.trim()
-}
-
-//2. feladat
-abc = cc.read('input/morzeabc.txt','\r\n','\t')
-
-//3. feladat
-cc.print( `3. feladat: A morze abc ${abc.length} db karakter kódját tartalmazza\n` )
-
-//4. feladat
-var karakter = cc.input('4. feladat: Kérek egy karaktert: ')
-mc = cc.find(abc,'Betű',karakter)
-if (typeof mc=='undefined')
-  cc.print(`            Nem található a kódtárban ilyen karakter!\n`)
-else
-  cc.print(`            A${az.aaz(karakter)} ${karakter} karakter morze kódja: ${mc.Morzejel}\n`)
-
-//5. feladat
-text = cc.read('input/morze.txt','\r\n',undefined,0,0,['szerző','idézet'])
-
-//10. feladat
-it = text.map( v => {
-    v.szerző = Morze2Szöveg(v.szerző)
-    v.idézet = Morze2Szöveg(v.idézet)
-    return v
-})
-cc.write('forditas.txt',it)
-
-//7. feladat
-cc.print('7. feladat: Az első idézet szerzője: ',it[0].szerző,'\n')
-
-//8. feladat
-it.sort( (a,b) => b.idézet.length-a.idézet.length)
-cc.print('8. feladat: A leghosszabb idézet szerzője és az idézet:',it[0].szerző+": "+it[0].idézet,'\n')
-
-//9. feladat
-it_a = cc.filter( it , 'szerző', 'ARISZTOTELÉSZ' )
-cc.print( '9. feladat: Arisztotelész idézetei:' )
-it_a.map( v => cc.print('          -',v.idézet) )
+const cc = require('exam-cc')
+let abc = cc.read('./input/morzeabc.txt', '\t')
+console.log(cc.yellow, `3. feladat: A morze abc ${abc.length} db karakter kódját tartalmazza.`)
+let betu = cc.input('4. feladat: Kérek egy karaktert:')
+  .toString()
+  .toUpperCase()
+let b2m = abc.toMap('Betű')
+let m2b = abc.toMap('Morzejel')
+console.log(
+  b2m.has(betu) ?
+  `            A ${ betu } karakter morze kódja: ${b2m.get(betu).Morzejel}` :
+  `            Nem található a kódban ilyen karakter!`
+)
+let szoveg = cc.read('./input/morze.txt', ';', 0, ['szerzo', 'idezet'])
+let Morze2Szöveg = szoveg =>
+  szoveg
+  .split(/\s{7}/) // szavak tömb
+  .map(szo =>
+    szo.split(/\s{3}/)
+    .map(betu => m2b.get(betu).Betű)
+    .join('')
+  )
+  .join(' ')
+console.log(`7. feladat: Az első idézet szerzője: ${ Morze2Szöveg(szoveg[0].szerzo) }`)
+let dszm = szoveg.map(v => ({
+  szerzo: Morze2Szöveg(v.szerzo),
+  idezet: Morze2Szöveg(v.idezet)
+}))
+let lhiesz = dszm.sort((a, b) => a.idezet - b.idezet)[0]
+console.log(
+  `8. feladat: A leghosszabb idézet és szerzője: ${ lhiesz.szerzo }: ${ lhiesz.idezet }`
+)
+console.log(
+  `9. feladat: Arisztotelész idézetei:` +
+  dszm.filter(v => v.szerzo === 'ARISZTOTELÉSZ')
+  .map(v => '\n          - ' + v.idezet).join('')
+)
+cc.write('forditas.txt', dszm)
