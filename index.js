@@ -28,11 +28,11 @@ console.log(
         .join('\n')
 )
 console.log(
-    `6. feladat\nAleggyorsabb hajó ${
+    `6. feladat\nA leggyorsabb hajó ${
         ( Number(file[0].nap) * 24 * 60 + Number(file[0].óra * 60) + Number(file[0].perc) - 7*60 - 13  )
     } perccel maradt le az abszolút rekordtól.`
     )
-cc.write('hajonevek.txt', file.map(v => ({
+cc.write('./files/hajonevek.txt', file.map(v => ({
     hajo: v.hajó,
     klub: v.klub,
     ido: `${v.nap}:${v.óra}:${v.perc}`
